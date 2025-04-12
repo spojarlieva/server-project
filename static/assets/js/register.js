@@ -82,7 +82,7 @@ document.getElementById("register-button").addEventListener("click", async (even
     }
 
     try {
-        const response = await fetch("https://server-project-production-d36b.up.railway.app/users/register", {
+        const response = await fetch("https://server-project-production-3a0b.up.railway.app/users/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

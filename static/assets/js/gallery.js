@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        let response = await fetch("https://server-project-production-d36b.up.railway.app/gallery/images")
+        let response = await fetch("https://server-project-production-3a0b.up.railway.app/gallery/images")
         if (!response.ok) {
             console.error("Error getting images")
             alert("Грешка при зареждане на снимките")
