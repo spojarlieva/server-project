@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    padding-top: 8vh;
+    background-color: rgba(189, 165, 130, 0.68);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+#logo {
+    font-family: "Brush Script MT", cursive;
+    font-size: 2rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0d5103;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    width: 80%;
+    list-style: none;
+    justify-content: space-evenly;
+    color: #ffffff;
+    padding: 0
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    cursor: pointer;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+.header-div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-div a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.header-div a:hover {
+    opacity: 0.7;
+}
+
+.dropdown-menu {
+    padding: 10px;
+    display: none;
+    position: absolute;
+    background-color: #0d5103;
+    min-width: 120px;
+    text-align: center;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.dropdown-menu li {
+    display: block;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.container {
+    color: black;
+    margin: 15px;
+    padding: 10px;
+}
+
+.centered-container {
+    color: black;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.person-info {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    gap: 20px;
+}
+
+.person-info img {
+    max-width: 200px;
+    height: auto;
+    padding-left: 70px;
+}
+
+#about-us {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 50px;
+    align-items: start;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.centered-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 8vh - 60px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.organization-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    max-width: 100ch;
+}
+
+.organization-info img {
+    max-width: 200px;
+    height: auto;
+    padding-right: 70px;
+}
+
+.volunteer-opportunity-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.volunteer-opportunity-info img {
+    max-width: 200px;
+    height: auto;
+}
+
+footer {
+    background-color: #0d5103;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#events-list {
+    list-style: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input:focus {
+    outline: 2px solid #0d5103;
+}
+
+form button {
+    background-color: #0d5103;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #0f6d04;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form button:active {
+    transform: translateY(0);
+    background-color: #0a3d02;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #0d5103; /* Green color matching the site */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-container input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+.checkbox-container label {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+}

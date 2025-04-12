@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/register.js" defer></script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a id="logo" href="index.html">NatureX</a></li>
+            <li class="dropdown">
+                Каузи
+                <ul class="dropdown-menu">
+                    <li><a href="causes.html">Нашите каузи</a></li>
+                    <li><a href="european-initiatives.html">Европейски иницативи</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                За нас
+                <ul class="dropdown-menu">
+                    <li><a href="about-us.html">За нас</a></li>
+                    <li><a href="our-team.html">Кои сме ние?</a></li>
+                    <li><a href="partner-organizations.html">Партньорски организации</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                Събития
+                <ul class="dropdown-menu">
+                    <li><a href="events.html">Събития</a></li>
+                    <li><a href="gallery.html">Галерия</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                Добровочески възможности и дарения
+                <ul class="dropdown-menu">
+                    <li><a href="volunteer-opportunities-and-donations.html">Добровочески възможности и дарения</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="header-div">
+            <a href="register.html">Регистарция</a>
+            <a href="login.html">Вход</a>
+        </div>
+    </nav>
+</header>
+
+<main class="centered-main">
+    <form>
+        <label>
+            Емайл
+            <input type="email" id="email-register">
+        </label>
+        <label>
+            Парола
+            <input type="password" id="password-register">
+        </label>
+        <label>
+            Потвърди парола
+            <input type="password" id="password-register-confirm">
+        </label>
+        <p class="error-message" id="register-error-message"></p>
+        <button id="register-button">Регистрирай се</button>
+    </form>
+</main>
+<footer>
+  <p>📍Sofia Center, ul. “Petar Parchevich” 43, 1000 Sofia</p>
+  <p>&copy; 2023 NatureX. Всички права запазени.</p>
+</footer>
+</body>
+</html>
