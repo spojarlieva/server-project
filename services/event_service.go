@@ -21,6 +21,9 @@ type EventService interface {
 
 	// GetRegisteredEvents will return all events wil additional filed if the user has registered for them.
 	GetRegisteredEvents(ctx context.Context, userId int) ([]models.EventWithRegistration, *utils.ErrorResponse)
+
+	// GetGalleryImages will return all gallery images.
+	GetGalleryImages(cxt context.Context) ([]models.GalleryImage, *utils.ErrorResponse)
 }
 
 // DefaultEventService is the default implementation of [EventService].
@@ -80,6 +83,14 @@ func (s *DefaultEventService) GetRegisteredEvents(ctx context.Context, userId in
 		return nil, utils.InternalServerError()
 	}
 	return events, nil
+}
+
+func (s *DefaultEventService) GetGalleryImages(cxt context.Context) ([]models.GalleryImage, *utils.ErrorResponse) {
+	images, err := s.eventRepository.GetGalleryImages(cxt)
+	if err != nil {
+		return nil, utils.InternalServerError()
+	}
+	return images, nil
 }
 
 // NewDefaultEventService will create new [DefaultEventService].

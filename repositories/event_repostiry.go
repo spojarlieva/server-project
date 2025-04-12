@@ -26,6 +26,9 @@ type EventRepository interface {
 
 	// GetRegisteredEvents will return all events wil additional filed if the user has registered for them.
 	GetRegisteredEvents(ctx context.Context, userId int) ([]models.EventWithRegistration, error)
+
+	// GetGalleryImages will return a slice of all images in the gallery.
+	GetGalleryImages(ctx context.Context) ([]models.GalleryImage, error)
 }
 
 // DefaultEventRepository is the default implementation of [EventRepository].
@@ -180,6 +183,42 @@ func (r *DefaultEventRepository) GetRegisteredEvents(ctx context.Context, userId
 	}
 
 	return result, nil
+}
+
+// countImages will count all images in the gallery.
+func (r *DefaultEventRepository) countImages(ctx context.Context) (int, error) {
+	row := r.db.QueryRowContext(ctx, "SELECT COUNT(*) FROM gallery")
+	var count int
+	err := row.Scan(&count)
+	if err != nil {
+		return 0, err
+	}
+	return count, nil
+}
+
+func (r *DefaultEventRepository) GetGalleryImages(ctx context.Context) ([]models.GalleryImage, error) {
+	count, err := r.countImages(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	images := make([]models.GalleryImage, 0, count)
+	rows, err := r.db.QueryContext(ctx, "SELECT id, image_url FROM gallery")
+	if err != nil {
+		return nil, err
+	}
+
+	for rows.Next() {
+		var image models.GalleryImage
+		err = rows.Scan(&image.Id, &image.Url)
+		if err != nil {
+			return nil, err
+		}
+
+		images = append(images, image)
+	}
+
+	return images, nil
 }
 
 // NewDefaultEventRepository will create new [DefaultEventRepository].

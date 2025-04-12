@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const getEvents = async () => {
     try {
-        const response = await fetch("https://server-project-production-b671.up.railway.app/events")
+        const response = await fetch("https://server-project-production-d36b.up.railway.app/events")
         if (!response.ok) {
             console.error("Error getting events")
             alert("Грешка при зараждането на събития")
@@ -55,7 +55,7 @@ const getEvents = async () => {
 
 const getRegisteredEvents = async (token) => {
     try {
-        const response = await fetch("https://server-project-production-b671.up.railway.app/events/registered", {
+        const response = await fetch("https://server-project-production-d36b.up.railway.app/events/registered", {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -111,7 +111,7 @@ const getRegisteredEvents = async (token) => {
 
                     try {
                         const response = await fetch(
-                            `https://server-project-production-b671.up.railway.app/events/register/${event.id}`,
+                            `https://server-project-production-d36b.up.railway.app/events/register/${event.id}`,
                             {
                                 method: checkBox.checked ? "POST" : "DELETE",
                                 headers: {

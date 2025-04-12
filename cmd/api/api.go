@@ -29,6 +29,7 @@ func (a *App) start() error {
 	mux.Handle("POST /events/register/{id}", utils.EnableCors(a.authenticator.Middleware(a.handlers.EventHandle.RegisterForEvents())))
 	mux.Handle("DELETE /events/register/{id}", utils.EnableCors(a.authenticator.Middleware(a.handlers.EventHandle.UnregisterForEvents())))
 	mux.Handle("GET /events/registered", utils.EnableCors(a.authenticator.Middleware(a.handlers.EventHandle.GetRegisteredEvents())))
+	mux.Handle("GET /gallery/images", utils.EnableCors(a.handlers.EventHandle.GetGalleryImages()))
 
 	return http.ListenAndServe(a.config.ServerAddr, mux)
 }

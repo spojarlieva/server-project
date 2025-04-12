@@ -6,7 +6,7 @@ document.getElementById("login-button").addEventListener("click", async (event) 
     const errorText = document.getElementById("login-error-message")
 
     try {
-        const response = await fetch("https://server-project-production-b671.up.railway.app/users/login", {
+        const response = await fetch("https://server-project-production-d36b.up.railway.app/users/login", {
             method: "POST", headers: {
                 "Content-Type": "application/json"
             }, body: JSON.stringify({email, password})

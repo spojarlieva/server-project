@@ -34,10 +34,17 @@ VALUES ('Доброволческа акция: Почисти природат�
 
 CREATE TABLE registrations
 (
-    id      SERIAL PRIMARY KEY,
+    id       SERIAL PRIMARY KEY,
     user_id  INT NOT NULL REFERENCES users (id),
     event_id INT NOT NULL REFERENCES events (id)
 );
+
+CREATE TABLE gallery
+(
+    id        SERIAL PRIMARY KEY,
+    image_url VARCHAR(255) NOT NULL
+);
+
 
 
 

@@ -24,6 +24,9 @@ type EventHandler interface {
 	// GetRegisteredEvents will return events with additional field if the user
 	// has registered for them.
 	GetRegisteredEvents() http.HandlerFunc
+
+	// GetGalleryImages will return all gallery images in json format with url.
+	GetGalleryImages() http.HandlerFunc
 }
 
 // DefaultEventHandler is default implementation of [EventHandler].
@@ -130,6 +133,23 @@ func (h *DefaultEventHandler) GetRegisteredEvents() http.HandlerFunc {
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.WriteHeader(http.StatusOK)
 		err = json.NewEncoder(w).Encode(events)
+		if err != nil {
+			utils.RespondWithError(w, utils.InternalServerError())
+		}
+	}
+}
+
+func (h *DefaultEventHandler) GetGalleryImages() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		images, errorResponse := h.eventRepository.GetGalleryImages(r.Context())
+		if errorResponse != nil {
+			utils.RespondWithError(w, errorResponse)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		err := json.NewEncoder(w).Encode(images)
 		if err != nil {
 			utils.RespondWithError(w, utils.InternalServerError())
 		}
